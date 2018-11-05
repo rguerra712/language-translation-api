@@ -1,0 +1,22 @@
+service:
+  name: language-translation-api
+
+custom:
+  apikey: language-translation-api-key
+
+plugins:
+  - serverless-add-api-key
+  - serverless-offline
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  translate:
+    handler: handler.translate
+    events:
+      - http:
+          method: get
+          path: translate
