@@ -1,5 +1,5 @@
 service:
-  name: language-translation-api
+  name: language-translation
 
 custom:
   apikey: language-translation-api-key
@@ -11,7 +11,12 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "translate:TranslateText"
+      Resource: "*"
 
 functions:
   translate:
@@ -20,3 +25,4 @@ functions:
       - http:
           method: get
           path: translate
+          private: true
