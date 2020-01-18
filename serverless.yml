@@ -1,0 +1,28 @@
+service:
+  name: language-translation
+
+custom:
+  apikey: language-translation-api-key
+
+plugins:
+  - serverless-add-api-key
+  - serverless-offline
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "translate:TranslateText"
+      Resource: "*"
+
+functions:
+  translate:
+    handler: handler.translate
+    events:
+      - http:
+          method: get
+          path: translate
+          private: true
