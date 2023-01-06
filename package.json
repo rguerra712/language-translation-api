@@ -19,7 +19,7 @@
     "serverless-webpack": "^4.0.0",
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.2",
-    "webpack": "^3.6.0"
+    "webpack": "^5.75.0"
   },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT"
